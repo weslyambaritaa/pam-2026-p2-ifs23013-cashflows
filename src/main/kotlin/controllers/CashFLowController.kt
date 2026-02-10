@@ -14,7 +14,7 @@ class CashFlowController(private val cashFlowService: ICashFlowService) {
     private suspend fun respondError(call: ApplicationCall, e: Exception) {
         when (e) {
             is ValidationException -> {
-                // Ganti Any menjadi Map<String, String> agar pesan error validasi terbaca
+                // Ganti Any menjadi Map<String, String>
                 call.respond(HttpStatusCode.BadRequest, DataResponse<Map<String, String>>("fail", e.message!!, e.errors))
             }
             is AppException -> {
