@@ -13,9 +13,17 @@ class CashFlowController(private val cashFlowService: ICashFlowService) {
 
     private suspend fun respondError(call: ApplicationCall, e: Exception) {
         when (e) {
-            is ValidationException -> call.respond(HttpStatusCode.BadRequest, DataResponse("fail", e.message!!, e.errors))
-            is AppException -> call.respond(HttpStatusCode.fromValue(e.code), DataResponse<Any>("fail", e.message!!))
-            else -> call.respond(HttpStatusCode.InternalServerError, DataResponse<Any>("error", "Internal Error: ${e.message}"))
+            is ValidationException -> {
+                // Ganti Any menjadi Map<String, String> agar pesan error validasi terbaca
+                call.respond(HttpStatusCode.BadRequest, DataResponse<Map<String, String>>("fail", e.message!!, e.errors))
+            }
+            is AppException -> {
+                // Ganti Any menjadi String?
+                call.respond(HttpStatusCode.fromValue(e.code), DataResponse<String?>("fail", e.message!!, null))
+            }
+            else -> {
+                call.respond(HttpStatusCode.InternalServerError, DataResponse<String?>("error", "Internal Error: ${e.message}", null))
+            }
         }
     }
 
@@ -25,7 +33,7 @@ class CashFlowController(private val cashFlowService: ICashFlowService) {
             loadInitialData().forEach {
                 cashFlowService.createRawCashFlow(it.id, it.type, it.source, it.label, it.amount, it.description, it.createdAt, it.updatedAt)
             }
-            call.respond(DataResponse<Any>("success", "Berhasil memuat data awal"))
+            call.respond(DataResponse<String?>("success", "Berhasil memuat data awal"))
         } catch (e: Exception) { respondError(call, e) }
     }
 
@@ -58,7 +66,7 @@ class CashFlowController(private val cashFlowService: ICashFlowService) {
             val id = call.parameters["id"] ?: throw AppException(400, "ID kosong")
             val req = call.receive<CashFlowRequest>()
             cashFlowService.updateCashFlow(id, req.type!!, req.source!!, req.label!!, req.amount!!, req.description!!)
-            call.respond(DataResponse<Any>("success", "Berhasil mengubah data catatan keuangan"))
+            call.respond(DataResponse<String?>("success", "Berhasil mengubah data catatan keuangan"))
         } catch (e: Exception) { respondError(call, e) }
     }
 
@@ -66,7 +74,7 @@ class CashFlowController(private val cashFlowService: ICashFlowService) {
         try {
             val id = call.parameters["id"] ?: throw AppException(400, "ID kosong")
             if (!cashFlowService.removeCashFlow(id)) throw AppException(404, "Data catatan keuangan tidak tersedia!")
-            call.respond(DataResponse<Any>("success", "Berhasil menghapus data catatan keuangan"))
+            call.respond(DataResponse<String?>("success", "Berhasil menghapus data catatan keuangan"))
         } catch (e: Exception) { respondError(call, e) }
     }
 
