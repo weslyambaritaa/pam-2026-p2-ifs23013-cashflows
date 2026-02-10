@@ -1,20 +1,29 @@
 package org.delcom
 
-import io.ktor.http.*
-import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
-import io.ktor.server.plugins.contentnegotiation.*
-import io.ktor.server.plugins.cors.routing.*
-import io.ktor.server.response.*
 import io.ktor.server.routing.*
-import org.koin.dsl.module
-import org.koin.ktor.plugin.Koin
-import org.koin.logger.slf4jLogger
+import org.delcom.controllers.CashFlowController
+import org.koin.ktor.ext.inject
 
 fun Application.configureRouting() {
+    // Inject Controller dari Koin
+    val controller by inject<CashFlowController>()
+
     routing {
-        get("/") {
-            call.respondText("Hello World!")
+        route("/cash-flows") {
+            post("/setup") { controller.setupData(call) }
+
+            get { controller.getAllCashFlows(call) }
+            post { controller.createCashFlow(call) }
+
+            get("/{id}") { controller.getCashFlowById(call) }
+            put("/{id}") { controller.updateCashFlow(call) }
+            delete("/{id}") { controller.deleteCashFlow(call) }
+
+            // Extension
+            get("/types") { controller.getCashFlowTypes(call) }
+            get("/sources") { controller.getCashFlowSources(call) }
+            get("/labels") { controller.getCashFlowLabels(call) }
         }
     }
 }

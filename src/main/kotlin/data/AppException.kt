@@ -1,12 +1,12 @@
 package org.delcom.data
 
-import kotlinx.serialization.Serializable
+// Exception umum (misal: 404 Data tidak ditemukan)
+open class AppException(
+    val code: Int,
+    override val message: String
+) : RuntimeException(message)
 
-@Serializable
-data class CashFlowRequest(
-    val type: String? = null,
-    val source: String? = null,
-    val label: String? = null,
-    val amount: Double? = null,
-    val description: String? = null
-)
+// Exception khusus validasi (400 dengan detail field error)
+class ValidationException(
+    val errors: Map<String, String>
+) : AppException(400, "Data yang dikirimkan tidak valid!")

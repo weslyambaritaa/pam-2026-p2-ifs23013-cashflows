@@ -2,6 +2,8 @@ val koin_version: String by project
 val kotlin_version: String by project
 val logback_version: String by project
 val dotenv_version: String by project
+// 1. Tambahkan definisi variabel ini
+val kotlinx_datetime_version: String by project
 
 plugins {
     kotlin("jvm") version "2.3.0"
@@ -31,6 +33,9 @@ dependencies {
     implementation("io.ktor:ktor-server-host-common")
     implementation("io.ktor:ktor-server-status-pages")
     implementation("io.github.cdimascio:dotenv-kotlin:$dotenv_version")
+
+    // 2. Tambahkan library ini untuk memperbaiki error 'datetime', 'Instant', 'Clock'
+    implementation("org.jetbrains.kotlinx:kotlinx-datetime:$kotlinx_datetime_version")
 
     testImplementation("io.ktor:ktor-server-test-host")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit:$kotlin_version")
