@@ -1,8 +1,7 @@
 package org.delcom.entities
 
 import kotlinx.serialization.Serializable
-import kotlinx.datetime.Clock
-import kotlinx.datetime.Instant
+import java.time.Instant
 
 @Serializable
 data class CashFlow(
@@ -12,6 +11,6 @@ data class CashFlow(
     val label: String,
     val amount: Double,
     val description: String,
-    val createdAt: Instant,
-    val updatedAt: Instant
+    val createdAt: String, // Diubah ke String agar serialisasi JSON lebih aman tanpa konfigurasi tambahan
+    val updatedAt: String
 )

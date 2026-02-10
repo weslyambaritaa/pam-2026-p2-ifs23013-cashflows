@@ -1,30 +1,34 @@
 package org.delcom
 
-import io.ktor.serialization.kotlinx.json.*
 import io.ktor.server.application.*
-import io.ktor.server.plugins.contentnegotiation.*
-import io.ktor.server.plugins.cors.routing.*
-import org.koin.ktor.plugin.Koin
 import org.delcom.data.cashFlowModule
+import org.koin.ktor.plugin.Koin
+import io.ktor.serialization.kotlinx.json.*
+import io.ktor.server.plugins.contentnegotiation.ContentNegotiation
+import io.ktor.server.plugins.cors.routing.CORS
+import kotlinx.serialization.json.Json
+import io.github.cdimascio.dotenv.dotenv
+import io.ktor.server.netty.EngineMain
 
 fun main(args: Array<String>) {
-    io.ktor.server.netty.EngineMain.main(args)
+    // Memuat konfigurasi dari file .env agar System.setProperty bisa mengenali port dan host
+    val dotenv = dotenv {
+        directory = "."
+        ignoreIfMissing = false
+    }
+
+    dotenv.entries().forEach {
+        System.setProperty(it.key, it.value)
+    }
+
+    EngineMain.main(args)
 }
 
 fun Application.module() {
-    // 1. Dependency Injection (Koin)
-    install(Koin) {
-        modules(cashFlowModule)
-    }
 
-    // 2. Serialization (JSON)
-    install(ContentNegotiation) {
-        json()
-    }
-
-    // 3. CORS (Agar bisa diakses frontend/postman)
     install(CORS) {
         anyHost()
+        // Mengizinkan header dan method yang diperlukan untuk interaksi API
         allowHeader(io.ktor.http.HttpHeaders.ContentType)
         allowMethod(io.ktor.http.HttpMethod.Options)
         allowMethod(io.ktor.http.HttpMethod.Put)
@@ -32,6 +36,19 @@ fun Application.module() {
         allowMethod(io.ktor.http.HttpMethod.Patch)
     }
 
-    // 4. Routing
+    install(ContentNegotiation) {
+        json(
+            Json {
+                prettyPrint = true
+                ignoreUnknownKeys = true
+            }
+        )
+    }
+
+    install(Koin) {
+        // Menggunakan module yang sesuai untuk project Cashflow
+        modules(cashFlowModule)
+    }
+
     configureRouting()
 }

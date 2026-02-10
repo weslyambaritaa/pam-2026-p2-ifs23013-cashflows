@@ -26,4 +26,3 @@ val cashFlowModule = module {
         CashFlowController(get())
     }
 }
-

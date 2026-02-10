@@ -1,6 +1,7 @@
 package org.delcom.repositories
 
 import org.delcom.entities.CashFlow
+import java.time.Instant
 
 class CashFlowRepository : ICashFlowRepository {
     // List mutable sebagai database sementara
@@ -21,6 +22,7 @@ class CashFlowRepository : ICashFlowRepository {
     override suspend fun update(cashFlow: CashFlow): Boolean {
         val index = db.indexOfFirst { it.id == cashFlow.id }
         if (index != -1) {
+            // Memperbarui data dengan entitas yang sudah diproses oleh service
             db[index] = cashFlow
             return true
         }
