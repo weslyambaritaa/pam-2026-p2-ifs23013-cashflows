@@ -1,0 +1,514 @@
+{
+  "cashFlows": [
+    {
+      "id": "103dd8ae-7965-4db4-a8db-2cac98fba795",
+      "type": "Pengeluaran",
+      "source": "Tabungan",
+      "label": "kebutuhan,elektronik",
+      "amount": 80000.0,
+      "description": "Membeli mouse dengan merek Gamen",
+      "createdAt": "2026-01-04T20:36:38.487112400Z",
+      "updatedAt": "2026-01-04T20:36:38.488127100Z"
+    },
+    {
+      "id": "545f2dcd-cf1b-4be6-9734-5d4a17fd53ff",
+      "type": "Pemasukan",
+      "source": "Tunai",
+      "label": "kebutuhan,alat-mandi",
+      "amount": 50000.0,
+      "description": "Menjual sabun dan shampoo",
+      "createdAt": "2026-01-04T20:37:53.766545300Z",
+      "updatedAt": "2026-01-04T20:37:53.766545300Z"
+    },
+    {
+      "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "type": "Pengeluaran",
+      "source": "Kartu Kredit",
+      "label": "transportasi,bensin",
+      "amount": 150000.0,
+      "description": "Isi bensin mobil untuk kerja mingguan",
+      "createdAt": "2026-01-02T08:15:22.123456789Z",
+      "updatedAt": "2026-01-02T08:15:22.123456789Z"
+    },
+    {
+      "id": "b2c3d4e5-f6a7-8901-bcde-f23456789012",
+      "type": "Pemasukan",
+      "source": "Transfer Bank",
+      "label": "gaji,bulanan",
+      "amount": 7500000.0,
+      "description": "Gaji bulan Januari 2026",
+      "createdAt": "2026-01-01T09:00:00.000000000Z",
+      "updatedAt": "2026-01-01T09:00:00.000000000Z"
+    },
+    {
+      "id": "c3d4e5f6-a7b8-9012-cdef-345678901234",
+      "type": "Pengeluaran",
+      "source": "E-Wallet",
+      "label": "makanan,restoran",
+      "amount": 120000.0,
+      "description": "Makan malam keluarga di restoran padang",
+      "createdAt": "2026-01-02T19:30:45.987654321Z",
+      "updatedAt": "2026-01-02T19:30:45.987654321Z"
+    },
+    {
+      "id": "d4e5f6a7-b8c9-0123-def0-456789012345",
+      "type": "Pengeluaran",
+      "source": "Tunai",
+      "label": "kebutuhan,pasar",
+      "amount": 250000.0,
+      "description": "Beli sayuran, buah, dan kebutuhan dapur",
+      "createdAt": "2026-01-03T07:45:10.555555555Z",
+      "updatedAt": "2026-01-03T07:45:10.555555555Z"
+    },
+    {
+      "id": "e5f6a7b8-c9d0-1234-ef01-567890123456",
+      "type": "Pemasukan",
+      "source": "Transfer Bank",
+      "label": "freelance,desain",
+      "amount": 850000.0,
+      "description": "Bayaran project desain logo",
+      "createdAt": "2026-01-03T14:20:33.444444444Z",
+      "updatedAt": "2026-01-03T14:20:33.444444444Z"
+    },
+    {
+      "id": "f6a7b8c9-d0e1-2345-f012-678901234567",
+      "type": "Pengeluaran",
+      "source": "Kartu Debit",
+      "label": "hiburan,streaming",
+      "amount": 79000.0,
+      "description": "Langganan Netflix bulan Januari",
+      "createdAt": "2026-01-04T00:05:00.333333333Z",
+      "updatedAt": "2026-01-04T00:05:00.333333333Z"
+    },
+    {
+      "id": "a7b8c9d0-e1f2-3456-0123-789012345678",
+      "type": "Pengeluaran",
+      "source": "Tabungan",
+      "label": "kesehatan,obat",
+      "amount": 65000.0,
+      "description": "Beli obat flu dan vitamin",
+      "createdAt": "2026-01-05T11:10:15.222222222Z",
+      "updatedAt": "2026-01-05T11:10:15.222222222Z"
+    },
+    {
+      "id": "b8c9d0e1-f2a3-4567-1234-890123456789",
+      "type": "Pemasukan",
+      "source": "Tunai",
+      "label": "lainnya,hadiah",
+      "amount": 200000.0,
+      "description": "Hadiah ulang tahun dari teman",
+      "createdAt": "2026-01-06T18:25:40.111111111Z",
+      "updatedAt": "2026-01-06T18:25:40.111111111Z"
+    },
+    {
+      "id": "c9d0e1f2-a3b4-5678-2345-901234567890",
+      "type": "Pengeluaran",
+      "source": "Kartu Kredit",
+      "label": "belanja,elektronik",
+      "amount": 1200000.0,
+      "description": "Beli smartwatch baru",
+      "createdAt": "2026-01-07T13:40:55.000000000Z",
+      "updatedAt": "2026-01-07T13:40:55.000000000Z"
+    },
+    {
+      "id": "d0e1f2a3-b4c5-6789-3456-012345678901",
+      "type": "Pengeluaran",
+      "source": "E-Wallet",
+      "label": "transportasi,ojol",
+      "amount": 35000.0,
+      "description": "Naik Gojek ke kantor",
+      "createdAt": "2026-01-08T08:55:20.999999999Z",
+      "updatedAt": "2026-01-08T08:55:20.999999999Z"
+    },
+    {
+      "id": "e1f2a3b4-c5d6-7890-4567-123456789012",
+      "type": "Pemasukan",
+      "source": "Transfer Bank",
+      "label": "investasi,dividen",
+      "amount": 350000.0,
+      "description": "Dividen saham BRI",
+      "createdAt": "2026-01-09T10:05:30.888888888Z",
+      "updatedAt": "2026-01-09T10:05:30.888888888Z"
+    },
+    {
+      "id": "f2a3b4c5-d6e7-8901-5678-234567890123",
+      "type": "Pengeluaran",
+      "source": "Tunai",
+      "label": "pendidikan,buku",
+      "amount": 180000.0,
+      "description": "Beli buku programming dan alat tulis",
+      "createdAt": "2026-01-10T15:20:45.777777777Z",
+      "updatedAt": "2026-01-10T15:20:45.777777777Z"
+    },
+    {
+      "id": "a3b4c5d6-e7f8-9012-6789-345678901234",
+      "type": "Pengeluaran",
+      "source": "Tabungan",
+      "label": "tagihan,listrik",
+      "amount": 450000.0,
+      "description": "Bayar tagihan PLN bulan Januari",
+      "createdAt": "2026-01-11T12:35:10.666666666Z",
+      "updatedAt": "2026-01-11T12:35:10.666666666Z"
+    },
+    {
+      "id": "b4c5d6e7-f8a9-0123-7890-456789012345",
+      "type": "Pemasukan",
+      "source": "Tunai",
+      "label": "bisnis,jualan",
+      "amount": 420000.0,
+      "description": "Hasil jualan online baju",
+      "createdAt": "2026-01-12T16:50:25.555555555Z",
+      "updatedAt": "2026-01-12T16:50:25.555555555Z"
+    },
+    {
+      "id": "c5d6e7f8-a9b0-1234-8901-567890123456",
+      "type": "Pengeluaran",
+      "source": "Kartu Debit",
+      "label": "makanan,groceries",
+      "amount": 320000.0,
+      "description": "Belanja bulanan di supermarket",
+      "createdAt": "2026-01-13T09:05:40.444444444Z",
+      "updatedAt": "2026-01-13T09:05:40.444444444Z"
+    },
+    {
+      "id": "d6e7f8a9-b0c1-2345-9012-678901234567",
+      "type": "Pengeluaran",
+      "source": "E-Wallet",
+      "label": "hiburan,karaoke",
+      "amount": 275000.0,
+      "description": "Nongkrong dan karaoke dengan teman",
+      "createdAt": "2026-01-14T21:20:55.333333333Z",
+      "updatedAt": "2026-01-14T21:20:55.333333333Z"
+    },
+    {
+      "id": "e7f8a9b0-c1d2-3456-0123-789012345678",
+      "type": "Pemasukan",
+      "source": "Transfer Bank",
+      "label": "bonus,proyek",
+      "amount": 1250000.0,
+      "description": "Bonus penyelesaian proyek tepat waktu",
+      "createdAt": "2026-01-15T11:35:10.222222222Z",
+      "updatedAt": "2026-01-15T11:35:10.222222222Z"
+    },
+    {
+      "id": "f8a9b0c1-d2e3-4567-1234-890123456789",
+      "type": "Pengeluaran",
+      "source": "Tabungan",
+      "label": "kebutuhan,maintenance",
+      "amount": 300000.0,
+      "description": "Service rutin mobil",
+      "createdAt": "2026-01-16T14:50:25.111111111Z",
+      "updatedAt": "2026-01-16T14:50:25.111111111Z"
+    },
+    {
+      "id": "a9b0c1d2-e3f4-5678-2345-901234567890",
+      "type": "Pengeluaran",
+      "source": "Tunai",
+      "label": "kesehatan,checkup",
+      "amount": 150000.0,
+      "description": "Biaya checkup dokter umum",
+      "createdAt": "2026-01-17T10:05:40.000000000Z",
+      "updatedAt": "2026-01-17T10:05:40.000000000Z"
+    },
+    {
+      "id": "b0c1d2e3-f4a5-6789-3456-012345678901",
+      "type": "Pemasukan",
+      "source": "Tunai",
+      "label": "lainnya,return",
+      "amount": 75000.0,
+      "description": "Uang kembali dari pembelian sebelumnya",
+      "createdAt": "2026-01-18T17:20:55.999999999Z",
+      "updatedAt": "2026-01-18T17:20:55.999999999Z"
+    },
+    {
+      "id": "c1d2e3f4-a5b6-7890-4567-123456789012",
+      "type": "Pengeluaran",
+      "source": "Kartu Kredit",
+      "label": "belanja,pakaian",
+      "amount": 480000.0,
+      "description": "Beli jaket dan 2 kemeja kerja",
+      "createdAt": "2026-01-19T13:35:10.888888888Z",
+      "updatedAt": "2026-01-19T13:35:10.888888888Z"
+    },
+    {
+      "id": "d2e3f4a5-b6c7-8901-5678-234567890123",
+      "type": "Pengeluaran",
+      "source": "E-Wallet",
+      "label": "makanan,coffee",
+      "amount": 45000.0,
+      "description": "Kopi dan snack di kafe",
+      "createdAt": "2026-01-20T08:50:25.777777777Z",
+      "updatedAt": "2026-01-20T08:50:25.777777777Z"
+    },
+    {
+      "id": "e3f4a5b6-c7d8-9012-6789-345678901234",
+      "type": "Pemasukan",
+      "source": "Transfer Bank",
+      "label": "freelance,writing",
+      "amount": 620000.0,
+      "description": "Bayaran menulis artikel blog",
+      "createdAt": "2026-01-21T15:05:40.666666666Z",
+      "updatedAt": "2026-01-21T15:05:40.666666666Z"
+    },
+    {
+      "id": "f4a5b6c7-d8e9-0123-7890-456789012345",
+      "type": "Pengeluaran",
+      "source": "Tabungan",
+      "label": "tagihan,internet",
+      "amount": 295000.0,
+      "description": "Bayar paket internet Indihome",
+      "createdAt": "2026-01-22T11:20:55.555555555Z",
+      "updatedAt": "2026-01-22T11:20:55.555555555Z"
+    },
+    {
+      "id": "a5b6c7d8-e9f0-1234-8901-567890123456",
+      "type": "Pengeluaran",
+      "source": "Tunai",
+      "label": "transportasi,tol",
+      "amount": 85000.0,
+      "description": "Biaya tol perjalanan luar kota",
+      "createdAt": "2026-01-23T07:35:10.444444444Z",
+      "updatedAt": "2026-01-23T07:35:10.444444444Z"
+    },
+    {
+      "id": "b6c7d8e9-f0a1-2345-9012-678901234567",
+      "type": "Pemasukan",
+      "source": "Tunai",
+      "label": "bisnis,jasa",
+      "amount": 380000.0,
+      "description": "Bayaran jasa reparasi laptop",
+      "createdAt": "2026-01-24T19:50:25.333333333Z",
+      "updatedAt": "2026-01-24T19:50:25.333333333Z"
+    },
+    {
+      "id": "c7d8e9f0-a1b2-3456-0123-789012345678",
+      "type": "Pengeluaran",
+      "source": "Kartu Debit",
+      "label": "hiburan,game",
+      "amount": 199000.0,
+      "description": "Top up game Mobile Legends",
+      "createdAt": "2026-01-25T22:05:40.222222222Z",
+      "updatedAt": "2026-01-25T22:05:40.222222222Z"
+    },
+    {
+      "id": "d8e9f0a1-b2c3-4567-1234-890123456789",
+      "type": "Pengeluaran",
+      "source": "Tabungan",
+      "label": "kebutuhan,perabot",
+      "amount": 750000.0,
+      "description": "Beli kursi kerja ergonomis",
+      "createdAt": "2026-01-26T14:20:55.111111111Z",
+      "updatedAt": "2026-01-26T14:20:55.111111111Z"
+    },
+    {
+      "id": "e9f0a1b2-c3d4-5678-2345-901234567890",
+      "type": "Pemasukan",
+      "source": "Transfer Bank",
+      "label": "investasi,capital-gain",
+      "amount": 920000.0,
+      "description": "Capital gain dari jual saham",
+      "createdAt": "2026-01-27T10:35:10.000000000Z",
+      "updatedAt": "2026-01-27T10:35:10.000000000Z"
+    },
+    {
+      "id": "f0a1b2c3-d4e5-6789-3456-012345678901",
+      "type": "Pengeluaran",
+      "source": "E-Wallet",
+      "label": "makanan,delivery",
+      "amount": 68000.0,
+      "description": "Pesan makanan via GrabFood",
+      "createdAt": "2026-01-28T20:50:25.999999999Z",
+      "updatedAt": "2026-01-28T20:50:25.999999999Z"
+    },
+    {
+      "id": "a1b2c3d4-e5f6-7890-4567-123456789012",
+      "type": "Pengeluaran",
+      "source": "Tunai",
+      "label": "pendidikan,kursus",
+      "amount": 450000.0,
+      "description": "Bayar kursus bahasa Inggris bulanan",
+      "createdAt": "2026-01-29T16:05:40.888888888Z",
+      "updatedAt": "2026-01-29T16:05:40.888888888Z"
+    },
+    {
+      "id": "b2c3d4e5-f6a7-8901-5678-234567890123",
+      "type": "Pemasukan",
+      "source": "Tunai",
+      "label": "lainnya,refund",
+      "amount": 120000.0,
+      "description": "Refund tiket pesawat yang dibatalkan",
+      "createdAt": "2026-01-30T12:20:55.777777777Z",
+      "updatedAt": "2026-01-30T12:20:55.777777777Z"
+    },
+    {
+      "id": "c3d4e5f6-a7b8-9012-6789-345678901234",
+      "type": "Pengeluaran",
+      "source": "Kartu Kredit",
+      "label": "belanja,elektronik",
+      "amount": 2100000.0,
+      "description": "Beli iPad Air generasi terbaru",
+      "createdAt": "2026-01-31T09:35:10.666666666Z",
+      "updatedAt": "2026-01-31T09:35:10.666666666Z"
+    },
+    {
+      "id": "d4e5f6a7-b8c9-0123-7890-456789012345",
+      "type": "Pengeluaran",
+      "source": "Tabungan",
+      "label": "tagihan,air",
+      "amount": 125000.0,
+      "description": "Bayar tagihan PDAM bulan Januari",
+      "createdAt": "2026-01-10T08:15:30.555555555Z",
+      "updatedAt": "2026-01-10T08:15:30.555555555Z"
+    },
+    {
+      "id": "e5f6a7b8-c9d0-1234-8901-567890123456",
+      "type": "Pemasukan",
+      "source": "Transfer Bank",
+      "label": "gaji,lembur",
+      "amount": 780000.0,
+      "description": "Pembayaran lembur bulan Desember",
+      "createdAt": "2026-01-05T14:45:20.444444444Z",
+      "updatedAt": "2026-01-05T14:45:20.444444444Z"
+    },
+    {
+      "id": "f6a7b8c9-d0e1-2345-9012-678901234567",
+      "type": "Pengeluaran",
+      "source": "E-Wallet",
+      "label": "transportasi,ojol",
+      "amount": 42000.0,
+      "description": "Naik GrabCar meeting klien",
+      "createdAt": "2026-01-12T18:30:15.333333333Z",
+      "updatedAt": "2026-01-12T18:30:15.333333333Z"
+    },
+    {
+      "id": "a7b8c9d0-e1f2-3456-0123-789012345678",
+      "type": "Pengeluaran",
+      "source": "Tunai",
+      "label": "kebutuhan,alat-rumah",
+      "amount": 95000.0,
+      "description": "Beli perlengkapan kebersihan rumah",
+      "createdAt": "2026-01-15T10:25:40.222222222Z",
+      "updatedAt": "2026-01-15T10:25:40.222222222Z"
+    },
+    {
+      "id": "b8c9d0e1-f2a3-4567-1234-890123456789",
+      "type": "Pemasukan",
+      "source": "Tunai",
+      "label": "bisnis,jualan",
+      "amount": 275000.0,
+      "description": "Hasil jualan kerajinan tangan",
+      "createdAt": "2026-01-18T13:40:55.111111111Z",
+      "updatedAt": "2026-01-18T13:40:55.111111111Z"
+    },
+    {
+      "id": "c9d0e1f2-a3b4-5678-2345-901234567890",
+      "type": "Pengeluaran",
+      "source": "Kartu Debit",
+      "label": "hiburan,bioskop",
+      "amount": 150000.0,
+      "description": "Nonton film di bioskop + popcorn",
+      "createdAt": "2026-01-22T20:55:10.000000000Z",
+      "updatedAt": "2026-01-22T20:55:10.000000000Z"
+    },
+    {
+      "id": "d0e1f2a3-b4c5-6789-3456-012345678901",
+      "type": "Pengeluaran",
+      "source": "Tabungan",
+      "label": "kesehatan,apotek",
+      "amount": 88000.0,
+      "description": "Beli masker dan suplemen",
+      "createdAt": "2026-01-25T11:10:25.999999999Z",
+      "updatedAt": "2026-01-25T11:10:25.999999999Z"
+    },
+    {
+      "id": "e1f2a3b4-c5d6-7890-4567-123456789012",
+      "type": "Pemasukan",
+      "source": "Transfer Bank",
+      "label": "freelance,editing",
+      "amount": 540000.0,
+      "description": "Bayaran editing video iklan",
+      "createdAt": "2026-01-28T16:25:40.888888888Z",
+      "updatedAt": "2026-01-28T16:25:40.888888888Z"
+    },
+    {
+      "id": "f2a3b4c5-d6e7-8901-5678-234567890123",
+      "type": "Pengeluaran",
+      "source": "E-Wallet",
+      "label": "makanan,restoran",
+      "amount": 185000.0,
+      "description": "Makan siang klien di restoran Jepang",
+      "createdAt": "2026-01-08T12:40:55.777777777Z",
+      "updatedAt": "2026-01-08T12:40:55.777777777Z"
+    },
+    {
+      "id": "a3b4c5d6-e7f8-9012-6789-345678901234",
+      "type": "Pengeluaran",
+      "source": "Tunai",
+      "label": "transportasi,bensin",
+      "amount": 90000.0,
+      "description": "Isi bensin motor",
+      "createdAt": "2026-01-11T07:55:10.666666666Z",
+      "updatedAt": "2026-01-11T07:55:10.666666666Z"
+    },
+    {
+      "id": "b4c5d6e7-f8a9-0123-7890-456789012345",
+      "type": "Pemasukan",
+      "source": "Tunai",
+      "label": "lainnya,komisi",
+      "amount": 320000.0,
+      "description": "Komisi referal aplikasi investasi",
+      "createdAt": "2026-01-14T15:10:25.555555555Z",
+      "updatedAt": "2026-01-14T15:10:25.555555555Z"
+    },
+    {
+      "id": "c5d6e7f8-a9b0-1234-8901-567890123456",
+      "type": "Pengeluaran",
+      "source": "Kartu Kredit",
+      "label": "belanja,hobi",
+      "amount": 350000.0,
+      "description": "Beli perlengkapan fotografi",
+      "createdAt": "2026-01-17T19:25:40.444444444Z",
+      "updatedAt": "2026-01-17T19:25:40.444444444Z"
+    },
+    {
+      "id": "d6e7f8a9-b0c1-2345-9012-678901234567",
+      "type": "Pengeluaran",
+      "source": "Tabungan",
+      "label": "tagihan,telepon",
+      "amount": 155000.0,
+      "description": "Bayar paket telepon bulanan",
+      "createdAt": "2026-01-21T09:40:55.333333333Z",
+      "updatedAt": "2026-01-21T09:40:55.333333333Z"
+    },
+    {
+      "id": "e7f8a9b0-c1d2-3456-0123-789012345678",
+      "type": "Pemasukan",
+      "source": "Transfer Bank",
+      "label": "investasi,dividen",
+      "amount": 410000.0,
+      "description": "Dividen saham Telkom",
+      "createdAt": "2026-01-24T14:55:10.222222222Z",
+      "updatedAt": "2026-01-24T14:55:10.222222222Z"
+    },
+    {
+      "id": "f8a9b0c1-d2e3-4567-1234-890123456789",
+      "type": "Pengeluaran",
+      "source": "E-Wallet",
+      "label": "makanan,street-food",
+      "amount": 25000.0,
+      "description": "Beli martabak manis dan es teh",
+      "createdAt": "2026-01-27T21:10:25.111111111Z",
+      "updatedAt": "2026-01-27T21:10:25.111111111Z"
+    },
+    {
+      "id": "a9b0c1d2-e3f4-5678-2345-901234567890",
+      "type": "Pengeluaran",
+      "source": "Tunai",
+      "label": "pendidikan,seminar",
+      "amount": 300000.0,
+      "description": "Bayar tiket seminar online",
+      "createdAt": "2026-01-30T10:25:40.000000000Z",
+      "updatedAt": "2026-01-30T10:25:40.000000000Z"
+    }
+  ]
+}
