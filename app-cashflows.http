@@ -1,0 +1,129 @@
+## Global Variabel
+@BaseUrl = http://127.0.0.1:8080
+
+## CashFlows: Setup Data
+## ===========================================
+
+### Memuat data awal dari file data-awal.json
+# @name PostSetupData
+POST {{BaseUrl}}/cash-flows/setup
+Content-Type: application/json
+
+## CashFlows: CRUD
+## ===========================================
+
+### Mengambil semua data cash-flows
+# @name GetAllCashFlows
+GET {{BaseUrl}}/cash-flows
+Content-Type: application/json
+
+### Menambahkan data cash-flow baru 1
+# @name PostCashFlow
+POST {{BaseUrl}}/cash-flows
+Content-Type: application/json
+
+{
+  "type": "Pengeluaran",
+  "source": "Tabungan",
+  "label": "kebutuhan,elektronik",
+  "amount": 80000,
+  "description": "Membeli mouse dengan merek Gamen"
+}
+
+### Menambahkan data cash-flow baru 2
+# @name PostCashFlow
+POST {{BaseUrl}}/cash-flows
+Content-Type: application/json
+
+{
+  "type": "Pemasukan",
+  "source": "Tunai",
+  "label": "kebutuhan,alat-mandi",
+  "amount": 50000,
+  "description": "Menual sabun dan shampoo"
+}
+
+> {%
+    client.global.set("cashFlowId", response.body.data.cashFlowId);
+%}
+
+### Mengambil data cash-flow berdasarkan id-nya
+# @name GetCashFlowById
+GET {{BaseUrl}}/cash-flows/{{cashFlowId}}
+Content-Type: application/json
+
+### Mengubah data cash-flow berdasarkan id-nya
+# @name PutCashFlow
+PUT {{BaseUrl}}/cash-flows/{{cashFlowId}}
+Content-Type: application/json
+
+{
+  "type": "Pengeluaran",
+  "source": "Tabungan",
+  "label": "kebutuhan,elektronik",
+  "amount": 80000,
+  "description": "Membeli 1 mouse dengan merek Gamen"
+}
+
+### Menghapus data cash-flow berdasarkan id-nya
+# @name DeleteCashFlow
+DELETE {{BaseUrl}}/cash-flows/{{cashFlowId}}
+Content-Type: application/json
+
+## CashFlows: Extends
+## ===========================================
+
+### Mengambil semua data tipe cash-flows
+# @name GetCashFlowTypes
+GET {{BaseUrl}}/cash-flows/types
+Content-Type: application/json
+
+### Mengambil semua data source cash-flows
+# @name GetCashFlowSources
+GET {{BaseUrl}}/cash-flows/sources
+Content-Type: application/json
+
+### Mengambil semua data label cash-flows
+# @name GetCashFlowLabels
+GET {{BaseUrl}}/cash-flows/labels
+Content-Type: application/json
+
+### Mengambil semua data cash-flows dengan filter type
+# @name GetAllCashFlows
+GET {{BaseUrl}}/cash-flows?type=pemasukan
+Content-Type: application/json
+
+### Mengambil semua data cash-flows dengan filter source
+# @name GetAllCashFlows
+GET {{BaseUrl}}/cash-flows?source=tabungan
+Content-Type: application/json
+
+### Mengambil semua data cash-flows dengan filter labels
+# @name GetAllCashFlows
+GET {{BaseUrl}}/cash-flows?labels=alat-mandi,elektronik
+Content-Type: application/json
+
+### Mengambil semua data cash-flows dengan filter amount besar sama dengan
+# @name GetAllCashFlows
+GET {{BaseUrl}}/cash-flows?gteAmount=80000
+Content-Type: application/json
+
+### Mengambil semua data cash-flows dengan filter amount kecil sama dengan
+# @name GetAllCashFlows
+GET {{BaseUrl}}/cash-flows?lteAmount=50000
+Content-Type: application/json
+
+### Mengambil semua data cash-flows dengan filter description
+# @name GetAllCashFlows
+GET {{BaseUrl}}/cash-flows?search=sabun
+Content-Type: application/json
+
+### Mengambil semua data cash-flows dengan filter tanggal awal
+# @name GetAllCashFlows
+GET {{BaseUrl}}/cash-flows?startDate=30-01-2026
+Content-Type: application/json
+
+### Mengambil semua data cash-flows dengan filter tanggal akhir
+# @name GetAllCashFlows
+GET {{BaseUrl}}/cash-flows?endDate=01-01-2026
+Content-Type: application/json

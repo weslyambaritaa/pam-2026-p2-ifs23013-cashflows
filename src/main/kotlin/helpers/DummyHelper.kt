@@ -12,22 +12,19 @@ data class CashFlowsContainer(
 
 fun loadInitialData(): List<CashFlow> {
     return try {
-        // Cek file di root project (priority 1)
         val jsonFile = File("data-awal.json")
 
-        // Cek resource stream (priority 2 - untuk production jar)
-        val resourceStream = object {}.javaClass.classLoader.getResourceAsStream("data-awal.json")
+        if (!jsonFile.exists()) {
+            // Try to load from resources
+            val resource = object {}.javaClass.classLoader.getResource("data-awal.json")
+                ?: throw IllegalStateException("File data-awal.json tidak ditemukan di resources atau filesystem")
 
-        val jsonText = when {
-            jsonFile.exists() -> jsonFile.readText()
-            resourceStream != null -> resourceStream.bufferedReader().use { it.readText() }
-            else -> {
-                println("Warning: File data-awal.json tidak ditemukan.")
-                return emptyList()
-            }
+            val jsonText = resource.readText()
+            Json.decodeFromString<CashFlowsContainer>(jsonText).cashFlows
+        } else {
+            val jsonText = jsonFile.readText()
+            Json.decodeFromString<CashFlowsContainer>(jsonText).cashFlows
         }
-
-        Json.decodeFromString<CashFlowsContainer>(jsonText).cashFlows
     } catch (e: Exception) {
         println("Error loading JSON data: ${e.message}")
         emptyList()
