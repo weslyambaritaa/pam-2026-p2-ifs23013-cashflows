@@ -1,3 +1,4 @@
+// src/main/kotlin/Routing.kt
 package org.delcom
 
 import io.ktor.server.application.*
@@ -20,20 +21,18 @@ fun Application.configureRouting() {
             call.respond(response)
         }
 
-        // src/main/kotlin/Routing.kt
-        // Routing.kt - Susunan yang benar
         route("/cash-flows") {
-            post("/setup") { controller.setupData(call) }
-            get { controller.getAllCashFlows(call) }
-            post { controller.createCashFlow(call) }
+            post("/setup") { controller.setupData(call) } // Sesuai
+            get { controller.getAll(call) }               // Ubah dari getAllCashFlows ke getAll
+            post { controller.create(call) }             // Ubah dari createCashFlow ke create
 
-            get("/types") { controller.getCashFlowTypes(call) }
-            get("/sources") { controller.getCashFlowSources(call) }
-            get("/labels") { controller.getCashFlowLabels(call) }
+            get("/types") { controller.getTypes(call) }     // Sesuai
+            get("/sources") { controller.getSources(call) } // Sesuai
+            get("/labels") { controller.getLabels(call) }   // Sesuai
 
-            get("/{id}") { controller.getCashFlowById(call) }
-            put("/{id}") { controller.updateCashFlow(call) }
-            delete("/{id}") { controller.deleteCashFlow(call) }
+            get("/{id}") { controller.getById(call) }       // Ubah dari getCashFlowById ke getById
+            put("/{id}") { controller.update(call) }        // Ubah dari updateCashFlow ke update
+            delete("/{id}") { controller.delete(call) }     // Ubah dari deleteCashFlow ke delete
         }
     }
 }

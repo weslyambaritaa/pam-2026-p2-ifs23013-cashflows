@@ -1,12 +1,8 @@
-package org.delcom.controllers
+package org.delcom.data
 
 import kotlinx.serialization.Serializable
 
-/**
- * DataResponse adalah wrapper standar untuk semua respon API.
- * Menggunakan Generic <T> agar properti 'data' bisa berisi objek apa pun.
- */
-@Serializable
+@Serializable // Baris ini wajib ada agar tidak muncul error "Serializer not found"
 data class DataResponse<T>(
     val status: String,
     val message: String,
