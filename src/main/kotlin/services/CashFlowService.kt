@@ -13,7 +13,7 @@ class CashFlowService(private val repository: ICashFlowRepository) : ICashFlowSe
     private val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
 
     override suspend fun getAllCashFlows(query: CashFlowQuery): List<CashFlow> {
-        var data: List<CashFlow> = repository.getAll()
+        var data = repository.getAll()
 
         query.type?.let { t -> data = data.filter { it.type.equals(t, ignoreCase = true) } }
         query.source?.let { s -> data = data.filter { it.source.equals(s, ignoreCase = true) } }
@@ -28,6 +28,7 @@ class CashFlowService(private val repository: ICashFlowRepository) : ICashFlowSe
 
         query.gteAmount?.let { min -> data = data.filter { it.amount >= min } }
         query.lteAmount?.let { max -> data = data.filter { it.amount <= max } }
+
         query.search?.takeIf { it.isNotBlank() }?.let { term ->
             data = data.filter { it.description.contains(term, ignoreCase = true) }
         }
@@ -56,30 +57,17 @@ class CashFlowService(private val repository: ICashFlowRepository) : ICashFlowSe
     }
 
     override suspend fun updateCashFlow(id: String, type: String, source: String, label: String, amount: Double, description: String): Boolean {
-        // Perbaikan: Panggil fungsi dari repository langsung
         val existing = repository.getById(id) ?: return false
-        val updated = existing.copy(
-            type = type,
-            source = source,
-            label = label,
-            amount = amount,
-            description = description,
-            updatedAt = Instant.now().toString()
-        )
+        val updated = existing.copy(type = type, source = source, label = label, amount = amount, description = description, updatedAt = Instant.now().toString())
         return repository.update(updated)
     }
 
     override suspend fun removeCashFlow(id: String): Boolean = repository.delete(id)
 
     override suspend fun getAvailableTypes(): List<String> = repository.getAll().map { it.type }.distinct()
-
     override suspend fun getAvailableSources(): List<String> = repository.getAll().map { it.source }.distinct()
-
     override suspend fun getAvailableLabels(): List<String> = repository.getAll()
-        .flatMap { it.label.split(",") }
-        .map { it.trim() }
-        .filter { it.isNotEmpty() }
-        .distinct()
+        .flatMap { it.label.split(",") }.map { it.trim() }.filter { it.isNotEmpty() }.distinct()
 
     override suspend fun createRawCashFlow(id: String, type: String, source: String, label: String, amount: Double, createdAt: String, updatedAt: String, description: String) {
         repository.add(CashFlow(id, type, source, label, amount, description, createdAt, updatedAt))
