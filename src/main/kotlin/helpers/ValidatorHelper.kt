@@ -22,12 +22,14 @@ class ValidatorHelper(
         }
     }
 
+// src/main/kotlin/helpers/ValidatorHelper.kt
+
     fun min(field: String, minValue: Double, message: String) {
         val value = data[field]
+        // Jika value <= 0 (minValue), maka error
         if (value is Number && value.toDouble() <= minValue) {
             errors[field] = message
         }
-        // Note: Jika null, validator 'required' yang akan menangani
     }
 
     fun validate() {

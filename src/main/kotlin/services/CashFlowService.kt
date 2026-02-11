@@ -2,6 +2,7 @@ package org.delcom.services
 
 import org.delcom.entities.CashFlow
 import org.delcom.repositories.ICashFlowRepository
+import org.delcom.data.CashFlowQuery // Pastikan import ini ada
 import java.util.UUID
 import java.time.Instant
 import java.time.LocalDate
@@ -11,34 +12,40 @@ import java.time.format.DateTimeFormatter
 class CashFlowService(private val repository: ICashFlowRepository) : ICashFlowService {
     private val formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy")
 
-    override suspend fun getAllCashFlows(
-        type: String?, source: String?, labels: String?,
-        gteAmount: Double?, lteAmount: Double?, search: String?,
-        startDate: String?, endDate: String?
-    ): List<CashFlow> {
+    override suspend fun getAllCashFlows(query: CashFlowQuery): List<CashFlow> {
         var data = repository.getAll()
 
-        type?.let { t -> data = data.filter { it.type.equals(t, ignoreCase = true) } }
-        source?.let { s -> data = data.filter { it.source.equals(s, ignoreCase = true) } }
-        labels?.let { l ->
+        // Gunakan properti dari objek query
+        query.type?.let { t -> data = data.filter { it.type.equals(t, ignoreCase = true) } }
+        query.source?.let { s -> data = data.filter { it.source.equals(s, ignoreCase = true) } }
+
+        query.labels?.takeIf { it.isNotBlank() }?.let { l ->
             val queryLabels = l.split(",").map { it.trim().lowercase() }
             data = data.filter { item ->
                 val itemLabels = item.label.split(",").map { it.trim().lowercase() }
                 itemLabels.any { it in queryLabels }
             }
         }
-        gteAmount?.let { min -> data = data.filter { it.amount >= min } }
-        lteAmount?.let { max -> data = data.filter { it.amount <= max } }
-        search?.let { term -> data = data.filter { it.description.contains(term, ignoreCase = true) } }
 
-        startDate?.let { d ->
-            val start = LocalDate.parse(d, formatter).atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli()
-            data = data.filter { Instant.parse(it.createdAt).toEpochMilli() >= start }
+        query.gteAmount?.let { min -> data = data.filter { it.amount >= min } }
+        query.lteAmount?.let { max -> data = data.filter { it.amount <= max } }
+        query.search?.takeIf { it.isNotBlank() }?.let { term ->
+            data = data.filter { it.description.contains(term, ignoreCase = true) }
         }
-        endDate?.let { d ->
-            val end = LocalDate.parse(d, formatter).atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli()
-            data = data.filter { Instant.parse(it.createdAt).toEpochMilli() <= end }
+
+        try {
+            query.startDate?.let { d ->
+                val start = LocalDate.parse(d, formatter).atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli()
+                data = data.filter { Instant.parse(it.createdAt).toEpochMilli() >= start }
+            }
+            query.endDate?.let { d ->
+                val end = LocalDate.parse(d, formatter).atStartOfDay(ZoneId.systemDefault()).toInstant().toEpochMilli()
+                data = data.filter { Instant.parse(it.createdAt).toEpochMilli() <= end }
+            }
+        } catch (e: Exception) {
+            // Log error parsing tanggal jika perlu
         }
+
         return data
     }
 

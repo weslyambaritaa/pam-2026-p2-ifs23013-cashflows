@@ -20,17 +20,20 @@ fun Application.configureRouting() {
             call.respond(response)
         }
 
+        // src/main/kotlin/Routing.kt
+        // Routing.kt - Susunan yang benar
         route("/cash-flows") {
             post("/setup") { controller.setupData(call) }
             get { controller.getAllCashFlows(call) }
             post { controller.createCashFlow(call) }
-            get("/{id}") { controller.getCashFlowById(call) }
-            put("/{id}") { controller.updateCashFlow(call) }
-            delete("/{id}") { controller.deleteCashFlow(call) }
 
             get("/types") { controller.getCashFlowTypes(call) }
             get("/sources") { controller.getCashFlowSources(call) }
             get("/labels") { controller.getCashFlowLabels(call) }
+
+            get("/{id}") { controller.getCashFlowById(call) }
+            put("/{id}") { controller.updateCashFlow(call) }
+            delete("/{id}") { controller.deleteCashFlow(call) }
         }
     }
 }
