@@ -68,7 +68,7 @@ class CashFlowController(private val cashFlowService: CashFlowService) {
     }
 
     suspend fun create(call: ApplicationCall) {
-        val req = call.receiveNullable<JsonObject>() ?: JsonObject(emptyMap())
+        val req = call.receive<JsonObject>()
         val errors = mutableMapOf<String, String>()
 
         var amount = 0.0
